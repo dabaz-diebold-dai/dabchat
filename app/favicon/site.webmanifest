@@ -1,6 +1,8 @@
 {
     "name": "DabChat",
     "short_name": "DabChat",
+    "description": "A web app for chat inspired by Discord.",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
