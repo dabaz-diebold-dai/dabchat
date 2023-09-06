@@ -24,10 +24,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${graphik.variable} ${spline.variable}`} suppressHydrationWarning>
-        <body>
+        <body className="bg-white dark:bg-neutral-800">
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             enableSystem={true}
             storageKey="dabtheme"
           >
