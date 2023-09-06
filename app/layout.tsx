@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { graphik, spline } from './fonts'
+import { ClerkProvider } from '@clerk/nextjs'
 
 export const metadata: Metadata = {
   title: 'DabChat',
@@ -20,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${graphik.variable} ${spline.variable}`}>
-      <body>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${graphik.variable} ${spline.variable}`}>
+        <body>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
