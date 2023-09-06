@@ -5,7 +5,12 @@ import { graphik, spline } from './fonts'
 export const metadata: Metadata = {
   title: 'DabChat',
   description: 'A web app for chat inspired by Discord.',
-  icons: '/favicon.ico',
+  manifest: '/favicon/site.webmanifest',
+  icons: {
+    icon: ['/favicon/favicon.ico'],
+    apple: ['/apple-touch-icon.png'],
+    shortcut: ['/apple-touch-icon.png']
+  },
 }
 
 export default function RootLayout({
