@@ -6,7 +6,7 @@ const inter = Inter_Tight({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'DabChat',
-  description: 'An online chat web app inspired by Discord',
+  description: 'A web app for chat inspired by Discord.',
 }
 
 export default function RootLayout({
