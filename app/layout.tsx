@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { graphik, spline } from './fonts'
 import { ClerkProvider } from '@clerk/nextjs'
+import { ThemeProvider } from '@dabaz/components/providers/theme-provider'
 
 export const metadata: Metadata = {
   title: 'DabChat',
@@ -22,9 +23,16 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${graphik.variable} ${spline.variable}`}>
+      <html lang="en" className={`${graphik.variable} ${spline.variable}`} suppressHydrationWarning>
         <body>
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={true}
+            storageKey="dabtheme"
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
