@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     apple: ['/favicon/apple-touch-icon.png'],
     shortcut: ['/favicon/apple-touch-icon.png']
   },
+  metadataBase: new URL('https://chat.dabaz.me')
 }
 
 export default function RootLayout({
