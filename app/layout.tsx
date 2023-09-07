@@ -1,6 +1,6 @@
-import './globals.css'
+import '@dabaz/app/globals.css'
 import type { Metadata } from 'next'
-import { graphik, spline } from './fonts'
+import { graphik, spline } from '@dabaz/app/fonts'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@dabaz/components/providers/theme-provider'
 
