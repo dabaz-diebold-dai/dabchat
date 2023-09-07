@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
+import { FileUpload } from "@dabaz/components/file-upload";
 
 import {
   Dialog,
@@ -62,7 +63,7 @@ export const InitialModal = () => {
     <Dialog open={true}>
       <DialogContent className="bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-medium">
+          <DialogTitle className="text-2xl text-center font-medium tracking-normal">
             Customize your server
           </DialogTitle>
           <DialogDescription className="text-center text-neutral-600 dark:text-neutral-400">
@@ -70,10 +71,24 @@ export const InitialModal = () => {
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <div className="space-y-6 px-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <div className="space-y-8 px-6">
               <div className="flex items-center justify-center text-center">
-                Upload your server image
+                <FormField
+                  control={form.control}
+                  name="imageUrl"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <FileUpload
+                          endpoint="serverImage"
+                          value={field.value}
+                          onChange={field.onChange}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
               </div>
 
               <FormField
@@ -99,7 +114,7 @@ export const InitialModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-neutral-200 dark:bg-neutral-800 px-6 py-4">
+            <DialogFooter className="bg-neutral-100 dark:bg-neutral-900 px-6 py-4">
               <Button 
                 variant="primary"
                 disabled={isLoading}
