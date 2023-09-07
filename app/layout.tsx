@@ -27,7 +27,7 @@ export default function RootLayout({
         <body className="bg-white dark:bg-neutral-800">
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="light"
             enableSystem={true}
             storageKey="dabtheme"
           >

@@ -1,6 +1,7 @@
 import { initialProfile } from "@dabaz/lib/initial-profile";
 import { db } from "@dabaz/lib/db";
 import { redirect } from "next/navigation";
+import { InitialModal } from "@dabaz/components/modals/initial-modal";
 
 const Setup = async () => {
   const profile = await initialProfile();
@@ -19,9 +20,7 @@ const Setup = async () => {
     return redirect(`/servers/${server.id}`);
   }
 
-  return ( 
-    <div className="text-3xl">create a server</div>
-  );
+  return <InitialModal />;
 }
  
 export default Setup;
