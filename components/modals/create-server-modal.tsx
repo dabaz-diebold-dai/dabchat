@@ -4,10 +4,9 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { FileUpload } from "@dabaz/components/file-upload";
 import { useRouter } from "next/navigation";
 
+import { FileUpload } from "@dabaz/components/file-upload";
 import {
   Dialog,
   DialogContent,
@@ -26,24 +25,22 @@ import {
 } from "@dabaz/components/ui/form";
 import { Input } from "@dabaz/components/ui/input";
 import { Button } from "@dabaz/components/ui/button";
+import { useModal } from "@dabaz/hooks/use-modal-store";
 
 const formSchema = z.object({
   name: z.string().min(1, {
     message: "Server name is required to continue!"
   }),
   imageUrl: z.string().min(1, {
-    message: "Server image is also required to continue!"
+    message: "Server image is required to continue!"
   })
 });
 
-export const InitialModal = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
+export const CreateServerModal = () => {
+  const { isOpen, onClose, type } = useModal();
   const router = useRouter();
-  
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+
+  const isModalOpen = isOpen && type === "createServer";
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -67,12 +64,13 @@ export const InitialModal = () => {
     }
   }
 
-  if (!isMounted) {
-    return null;
+  const handleClose = () => {
+    form.reset();
+    onClose();
   }
 
   return (
-    <Dialog open>
+    <Dialog open={isModalOpen} onOpenChange={handleClose}>
       <DialogContent className="bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-medium tracking-normal">

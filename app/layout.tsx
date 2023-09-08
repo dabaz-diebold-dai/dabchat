@@ -2,7 +2,9 @@ import '@dabaz/app/globals.css'
 import type { Metadata } from 'next'
 import { graphik, spline } from '@dabaz/app/fonts'
 import { ClerkProvider } from '@clerk/nextjs'
+
 import { ThemeProvider } from '@dabaz/components/providers/theme-provider'
+import { ModalProvider } from '@dabaz/components/providers/modal-provider'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -70,6 +72,7 @@ export default function RootLayout({
             enableSystem={true}
             storageKey="dabtheme"
           >
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </body>

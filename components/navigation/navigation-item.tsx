@@ -30,7 +30,7 @@ export const NavigationItem = ({
       label={name}
     >
       <button
-        onClick={() => {}}
+        onClick={() => onClick()}
         className="group relative flex items-center"
       >
         <div className={cn(
@@ -45,7 +45,7 @@ export const NavigationItem = ({
           <Image
             fill
             src={imageUrl}
-            alt={name}
+            alt="channel"
           />
         </div>
       </button>
