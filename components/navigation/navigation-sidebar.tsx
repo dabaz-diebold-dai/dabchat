@@ -30,7 +30,7 @@ export const NavigationSidebar = async () => {
 
   return (
     <div
-      className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-neutral-100 dark:bg-neutral-900 py-4"
+      className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-[#E3E5E8] dark:bg-[#1E1F22] py-4"
     >
       <NavigationAction />
       <Separator
