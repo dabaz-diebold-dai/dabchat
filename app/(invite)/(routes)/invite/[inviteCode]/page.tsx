@@ -51,13 +51,13 @@ const InviteCodePage = async ({
         ]
       }
     }
-  })
+  });
 
-  return (
-    <div>
-      Hello
-    </div>
-  );
+  if (server) {
+    return redirect(`/servers/${server.id}`);
+  }
+
+  return null;
 }
 
 export default InviteCodePage;
