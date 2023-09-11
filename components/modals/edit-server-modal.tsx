@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 import { FileUpload } from "@dabaz/components/file-upload";
 import {
@@ -41,6 +42,7 @@ export const EditServerModal = () => {
   const router = useRouter();
 
   const isModalOpen = isOpen && type === "editServer";
+  const { server } = data;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -50,11 +52,18 @@ export const EditServerModal = () => {
     },
   });
 
+  useEffect(() => {
+    if (server) {
+      form.setValue("name", server.name);
+      form.setValue("imageUrl", server.imageUrl);
+    }
+  }, [server, form]);
+
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post("/api/servers", values);
+      await axios.patch(`/api/servers/${server?.id}`, values);
 
       form.reset();
       router.refresh();
@@ -129,7 +138,7 @@ export const EditServerModal = () => {
                 variant="primary"
                 disabled={isLoading}
               >
-                Create
+                Save
               </Button>
             </DialogFooter>
           </form>
