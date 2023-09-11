@@ -60,7 +60,7 @@ export const InviteModal = () => {
             Invite Your Friends
           </DialogTitle>
           <DialogDescription className="text-center text-neutral-600 dark:text-neutral-400">
-            Send a server invite link to your friends
+            Send a server invite link to your friends.
           </DialogDescription>
         </DialogHeader>
         <div className="p-6">
