@@ -83,10 +83,10 @@ export const EditServerModal = () => {
       <DialogContent className="bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-medium tracking-normal">
-            Customize Your Server
+            Edit Your Server
           </DialogTitle>
           <DialogDescription className="text-center text-neutral-600 dark:text-neutral-400">
-            Give your server a personality with a name and an image. You can always change it later.
+            Change the name or the image of your channel.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
