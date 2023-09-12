@@ -31,9 +31,6 @@ const formSchema = z.object({
   name: z.string().min(1, {
     message: "Server name is required to continue!"
   }),
-  imageUrl: z.string().min(1, {
-    message: "Server image is required to continue!"
-  })
 });
 
 export const CreateChannelModal = () => {
@@ -46,7 +43,6 @@ export const CreateChannelModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      imageUrl: "",
     },
   });
 
@@ -74,7 +70,7 @@ export const CreateChannelModal = () => {
       <DialogContent className="bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-medium tracking-normal">
-            Customize your server
+            Create Channel
           </DialogTitle>
           <DialogDescription className="text-center text-neutral-600 dark:text-neutral-400">
             Give your server a personality with a name and an image. You can always change it later.
@@ -83,24 +79,6 @@ export const CreateChannelModal = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
-              <div className="flex items-center justify-center text-center">
-                <FormField
-                  control={form.control}
-                  name="imageUrl"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <FileUpload
-                          endpoint="serverImage"
-                          value={field.value}
-                          onChange={field.onChange}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-              </div>
-
               <FormField
                 control={form.control}
                 name="name"
