@@ -7,6 +7,7 @@ import { InviteModal } from "@dabaz/components/modals/invite-modal";
 import { EditServerModal } from "@dabaz/components/modals/edit-server-modal";
 import { MembersModal } from "@dabaz/components/modals/members-modal";
 import { CreateChannelModal } from "@dabaz/components/modals/create-channel-modal";
+import { LeaveServerModal } from "@dabaz/components/modals/leave-server-modal";
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,6 +27,7 @@ export const ModalProvider = () => {
       <EditServerModal />
       <MembersModal />
       <CreateChannelModal />
+      <LeaveServerModal />
     </>
   )
 }
