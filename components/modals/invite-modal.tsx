@@ -2,6 +2,7 @@
 
 import { Check, Copy, RefreshCw } from "lucide-react";
 import { useState } from "react";
+import axios from "axios";
 
 import {
   Dialog,
@@ -16,7 +17,6 @@ import { Label } from "@dabaz/components/ui/label";
 import { Input } from "@dabaz/components/ui/input";
 import { Button } from "@dabaz/components/ui/button";
 import { useOrigin } from "@dabaz/hooks/use-origin";
-import axios from "axios";
 
 export const InviteModal = () => {
   const { onOpen, isOpen, onClose, type, data } = useModal();
